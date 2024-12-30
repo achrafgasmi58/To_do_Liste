@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./flask-backend
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_APP: app
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./react-frontend
+    ports:
+      - "3000:80"
+
+  db:
+    image: postgres:latest
+    container_name: postgres-todo
+    environment:
+      POSTGRES_USER: achraf
+      POSTGRES_PASSWORD: Pearlexport58
+      POSTGRES_DB: todo_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
