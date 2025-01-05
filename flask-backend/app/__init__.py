@@ -1,21 +1,21 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from app.models import db
-from app.routes.tasks import tasks_bp  # Import du blueprint
+from app.routes.tasks import tasks_bp
 from flask_cors import CORS
 
 def create_app():
     app = Flask(__name__)
-    CORS(app, resources={r"/*": {"origins": "*"}}) 
+    CORS(app, resources={r"/*": {"origins": "*"}})
 
-    # Configuration de la base de données
+    # Database configuration
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://achraf:Pearlexport58@localhost:5433/todo_db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-    # Initialisation de la base de données
+    # Initialize the database
     db.init_app(app)
 
-    # Enregistrer le blueprint
+    # Register the blueprint
     app.register_blueprint(tasks_bp)
 
     with app.app_context():
