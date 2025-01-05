@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const API_URL = 'http://localhost:5001/tasks';
+const API_URL = 'http://localhost:5000/tasks';
 
 
 // Récupérer toutes les tâches

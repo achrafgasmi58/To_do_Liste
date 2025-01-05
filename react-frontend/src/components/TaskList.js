@@ -107,7 +107,7 @@ const TaskList = ({ tasks, setTasks }) => {
                             label="Rechercher"
                             variant="outlined"
                             fullWidth
-                            margin="normal"
+                            margin="dense" // Corrected
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
@@ -116,7 +116,7 @@ const TaskList = ({ tasks, setTasks }) => {
                             onChange={(e) => setFilter(e.target.value)}
                             displayEmpty
                             fullWidth
-                            margin="normal"
+                            margin="dense" // Corrected
                         >
                             <MenuItem value="all">Toutes Status</MenuItem>
                             <MenuItem value="completed">Terminées</MenuItem>
@@ -127,7 +127,7 @@ const TaskList = ({ tasks, setTasks }) => {
                             onChange={(e) => setCategoryFilter(e.target.value)}
                             displayEmpty
                             fullWidth
-                            margin="normal"
+                            margin="dense" // Corrected
                         >
                             {uniqueCategories.map((category) => (
                                 <MenuItem key={category} value={category}>
